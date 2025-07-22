@@ -1,0 +1,31 @@
+# Fichiers de log
+logs
+*.log
+
+# Dossiers de build Maven
+# Ignorer tous les dossiers 'target'
+target/
+
+# Dépendances Maven locales
+.m2/
+
+# Fichiers générés par les IDE
+.idea/
+*.iml
+*.iws
+.classpath
+.project
+.settings
+.sts4-cache
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration VS Code
+.vscode/
+
+# Configuration du Maven Wrapper
+# On ignore tout dans le dossier .mvn, SAUF le fichier .jar essentiel
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar

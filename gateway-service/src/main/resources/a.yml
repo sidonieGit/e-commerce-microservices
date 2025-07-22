@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # Première route
+        - id: r1
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customers/**
+
+        # Deuxième route, avec la bonne indentation--ON REMPLACE uri: http://localhost:8084
+        - id: r2
+          uri: lb://INVENTORY-SERVICE
+          predicates:
+            - Path=/products/**
