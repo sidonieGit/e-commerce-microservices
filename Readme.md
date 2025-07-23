@@ -10,6 +10,7 @@ Le projet est composé des microservices suivants :
 *   **`gateway-service` (Port `8888`)**: La passerelle d'API (API Gateway). C'est le point d'entrée unique pour toutes les requêtes externes. Elle redirige le trafic vers les microservices appropriés.
 *   **`customer-service` (Port `8083`)**: Gère les informations des clients.
 *   **`inventory-service` (Port `8084`)**: Gère l'inventaire des produits.
+*   **`billing-service` (Port `8085`)**: Gère la facturation, en communiquant avec les autres services pour récupérer les informations des clients et des produits.
 
 ## Technologies utilisées
 
@@ -59,6 +60,9 @@ Le projet est composé des microservices suivants :
         
         # Dans un autre nouveau terminal
         java -jar inventory-service/target/inventory-service-0.0.1-SNAPSHOT.jar
+        
+        # Dans encore un autre nouveau terminal
+        java -jar billing-service/target/billing-service-0.0.1-SNAPSHOT.jar
         ```
         Vérifiez sur le tableau de bord d'Eureka qu'ils sont bien enregistrés.
 
@@ -67,6 +71,7 @@ Le projet est composé des microservices suivants :
         # Dans un dernier terminal
         java -jar gateway-service/target/gateway-service-0.0.1-SNAPSHOT.jar
         ```
+        
 
 4.  **Le projet est prêt !**
     L'application est maintenant accessible via la Gateway sur `http://localhost:8888`.
@@ -79,5 +84,9 @@ Toutes les requêtes doivent passer par la Gateway sur le port `8888`.
     `GET http://localhost:8888/customers`
 *   **Lister tous les produits :**
     `GET http://localhost:8888/products` ou `GET http://localhost:8888/INVENTORY-SERVICE/products`
+*   **Lister toutes les factures/la première avec id =1:**
+      `GET http://localhost:8888/billing-service/bills ` ou `GET http://localhost:8888/billing-service/bills/1`
 *   **Voir le tableau de bord Eureka :**
     `http://localhost:8761`
+
+## Prochaine étape :Tolérance aux pannes et la suite
